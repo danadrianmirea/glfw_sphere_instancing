@@ -11,15 +11,10 @@ constexpr int screenWidth = 800;
 constexpr int screenHeight = 600;
 int oldTimeSinceStart = 0;
 
-#pragma pack(push, 1)
 struct InstanceData {
     glm::mat4 model;
     glm::vec3 color;
-    float padding;          // Padding to align data
 };
-#pragma pack(pop)
-
-
 
 // Shader source code
 const char* vertexShaderSource = R"(
@@ -153,8 +148,6 @@ int main() {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
-
-
 
     const int numObj_x = 30;
     const int numObj_y = 30;
